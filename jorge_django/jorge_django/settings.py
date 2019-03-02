@@ -26,13 +26,15 @@ SECRET_KEY = '+xt7ewx299xz-9)=pscxt&@+kho@31_%rujgj_@by+_%u%%o0x'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '192.168.11.103'
+    '192.168.11.103',
+    '127.0.0.1'
 ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +79,12 @@ WSGI_APPLICATION = 'jorge_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'jorge_django_test',
+        'USER': 'vagrant',
+        'PASSWORD': 'testpass',
+        'HOST': '192.168.11.103',
+        'PORT': '5432',
     }
 }
 
